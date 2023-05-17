@@ -1,0 +1,132 @@
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:{
+    image: linear-gradient(45deg, hsl(191, 45%, 29%), hsl(191, 65%, 80%));
+    size: cover;
+    attachment: fixed;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 3em;
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  width: 15em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  background: #eee;
+  padding: .7em;
+  margin: 1.5em;
+  border-radius: .5em;
+  position: relative;
+  box-shadow: 0 0 3em 2em rgba(0, 0, 0, .05);
+
+  &__shade {
+    display: inline-block;
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
+    z-index: -5;
+    border-radius: .7em;
+    background: rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+  }
+  &__img {
+    display: inline-block;
+    width: 100%;
+    height: 12em;
+  }
+  &__content {
+    display: flex;
+    margin: 1em 0;
+  }
+  &__texts {
+    flex: 5;
+    margin-right: .5em;
+  }
+  &__title {
+    font-size: 1.4em;
+  }
+  &__desc {
+    margin: .3em 0;
+  }
+  &__price {
+    font-size: 1.2em;
+    font-weight: 700;
+  }
+  &__like {
+    width: 2.3em;
+    height: 2.3em;
+    flex: 1;
+    background: var(--like-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    --heart: #454545;
+    --like-bg: #ccc;
+    svg {
+      width: 60%;
+      height: 60%;
+      & * {
+        fill: var(--heart);
+      }
+    }
+    &:hover {
+      --like-bg: #ffe6e6;
+      --heart: #ff8080;
+    }
+  }
+
+  &__btn {
+    --btn-bg: hsl(120, 100%, 30%);
+    --btn-fg: #eee;
+    outline: none;
+    border: none;
+    background: var(--btn-bg);
+    padding: .5rem .8rem;
+    margin: .4rem;
+    border-radius: .3rem;
+    font-weight: 700;
+    color: var(--btn-fg);
+    border: 1px solid var(--btn-fg);
+    box-shadow: 0 0 .3em .2em rgba(0, 0, 0, .1);
+    cursor: pointer;
+    transform: scale(.98);
+
+    &:hover {
+      transform: scale(1);
+      background: var(--btn-fg);
+      color: var(--btn-bg);
+      border-color: var(--btn-bg);
+      border-width: 2px;
+    }
+    &--white {
+      --btn-bg: #eee;
+      --btn-fg: hsl(120, 100%, 30%);
+    }
+  }
+}
